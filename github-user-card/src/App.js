@@ -23,7 +23,7 @@ class App extends React.Component {
       .catch((err) => console.log(err));
 
     axios
-      .get("http://api.github.com/users//Nathan-dumas/followers")
+      .get("http://api.github.com/users/tetondan/followers") // Used instructor Dan's followers as I have 0
       .then((res) => {
         this.setState({
           followers: res.data,
@@ -37,13 +37,20 @@ class App extends React.Component {
       <div>
         <Card
           name={this.state.user.name}
-          location={this.state.user.location}
           avatar_url={this.state.user.avatar_url}
-          bio={this.state.user.bio}
           html_url={this.state.user.html_url}
-          following={this.state.user.following}
-          followers={this.state.user.followers}
         />
+        <div>
+          <h2>Instructor Dan's Followers:</h2>
+          {this.state.followers.map((item) => (
+            <Card
+              key={item}
+              name={item.login}
+              avatar_url={item.avatar_url}
+              html_url={item.html_url}
+            />
+          ))}
+        </div>
       </div>
     );
   }
