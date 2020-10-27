@@ -84,3 +84,8 @@ a {
     text-decoration: none;
     margin: 5% 0 2% 0;
 }
+
+.followers {
+    display: flex;
+    flex-wrap: wrap;
+}

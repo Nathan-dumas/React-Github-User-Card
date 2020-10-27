@@ -35,16 +35,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Card
+        <Card 
+          key={this.state.user.login}
           name={this.state.user.name}
           avatar_url={this.state.user.avatar_url}
           html_url={this.state.user.html_url}
         />
-        <div>
-          <h2>Instructor Dan's Followers:</h2>
+          <h2>Instructor Dan Frehner's Followers:</h2>
+        <div className="followers">
           {this.state.followers.map((item) => (
             <Card
-              key={item}
+              key={item.login}
               name={item.login}
               avatar_url={item.avatar_url}
               html_url={item.html_url}
